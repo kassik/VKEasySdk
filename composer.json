@@ -1,6 +1,7 @@
 {
     "name": "slim4ik_off/vk_easy_sdk",
     "description": "php library for vk api",
+    "minimum-stability": "dev",
     "require": {
       "php": ">=8.1",
       "ext-pdo": "*",
