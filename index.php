@@ -25,8 +25,6 @@ $confirmation = 'c6744fcb';
 $secret = 'a12o901228uqp12nn129uu';
 $group_id = 150194836;
 
-Adding new features and fixing bugs
-
 class MainState {
     use State;
 

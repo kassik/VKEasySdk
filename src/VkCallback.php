@@ -30,17 +30,14 @@ class VkCallback {
 
     private string $access_token;
 
-    private int $group_id;
 
-
-    public function __construct(string $access_token, string $confirmation, string $secret, int $group_id) {
+    public function __construct(string $access_token, string $confirmation, string $secret) {
         if(empty($confirmation)) {
             throw new VkCallbackException('Сonfirmation parameter is null');
         }
         
         $this->access_token = $access_token;
         $this->confirmation = $confirmation;
-        $this->group_id = $group_id;
         $this->secret = $secret;
     }
 
@@ -80,9 +77,7 @@ class VkCallback {
         }
 
         if($webhook = Utils::jsonValidate($webhook)) {
-            if ($this->secret != null
-                && $this->secret != $webhook->secret
-                && $this->group_id != $webhook->group_id) {
+            if ($this->secret != null && $this->secret != $webhook->secret) {
                 throw new VkCallbackException('Secret key, not valid!');
             }
 
