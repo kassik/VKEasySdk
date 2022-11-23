@@ -134,7 +134,7 @@ class Bot extends VkClient {
     }
 
     #[Pure] public function rules(): Rules {
-        return new Rules($this->response);
+        return new Rules($this->response, $this);
     }
 
     /**
@@ -162,6 +162,25 @@ class Bot extends VkClient {
             'peer_id' => $this->response->message->peer_id,
             'type' => 'typing'
         ]);
+    }
+
+    /**
+     * Вернет данные от вк
+     * @return void
+     */
+    public function getListener(): void {
+        $this->debug($this->response);
+    }
+
+    /**
+     * Для дебага
+     *
+     * @param $data
+     * @return void
+     */
+    public function debug($data): void {
+        var_dump($data);
+        $this->answer(print_r($data, true));
     }
 
 }

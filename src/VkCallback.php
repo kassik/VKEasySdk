@@ -47,11 +47,17 @@ class VkCallback {
     /**
      * События callback api
      *
-     * @param string $type
+     * @param string|array $types через массив можно указать сразу несколько событий, к примеру message_new и message_delete
      * @param callable $callback
      */
-    public function event(string $type, callable $callback) {
-        $this->events[$type] = $callback;
+    public function event(string|array $types, callable $callback) {
+        if(is_array($types)) {
+            foreach ($types as $type) {
+                $this->events[$type] = $callback;
+            }
+        } else {
+            $this->events[$types] = $callback;
+        }
     }
 
     /**
@@ -86,8 +92,8 @@ class VkCallback {
                 $bot = new Bot($this->access_token,$webhook->object);
                 $webhook->object->group_id = $webhook->group_id;
                 $return = isset($this->events[$webhook->type]) ? $this->events[$webhook->type] ($bot, $webhook->object, (int) $webhook->group_id): null;
-                //$this->send_ok();
-                echo 'ok';
+                $this->send_ok();
+                //echo 'ok';
                 return $return;
             }
         }

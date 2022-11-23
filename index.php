@@ -20,12 +20,12 @@ use VkEasySdk\VkCallback;
  * Вспомогательная функция которая ищет макс размер фото в attachments
  */
 
-$token = '94e849861e8c99b6fc2e45639153ca6224db5e42363711af8f94ef440a2858992b62cd42c25f45e0f6322';
+$token = '94e849861e8c99b6fc2e45639153ca6224db5e42363711af8f94ef440a2858992b62cd42c25f45e0f6322s';
 $confirmation = 'c6744fcb';
 $secret = 'a12o901228uqp12nn129uu';
 $group_id = 150194836;
 
-// echo '<pre>';
+Adding new features and fixing bugs
 
 class MainState {
     use State;
