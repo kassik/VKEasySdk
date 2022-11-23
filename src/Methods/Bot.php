@@ -134,7 +134,7 @@ class Bot extends VkClient {
     }
 
     #[Pure] public function rules(): Rules {
-        return new Rules($this->response, $this);
+        return new Rules($this, $this->response);
     }
 
     /**
